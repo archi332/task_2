@@ -1,6 +1,5 @@
-
-
-<div class="col-md-2"></div>
+<div class="row">
+	<div class="col-md-2">1</div>
 	<div class="col-md-8">
 		<div>
 			<form action="" method="post">
@@ -26,7 +25,7 @@
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Дата рождения: </label>
-			    <input type="date" class="form-control" name="date_b" min="31-12-2014" placeholder="Name">
+			    <input type="date" class="form-control" name="date_b" min="31-12-2014" >
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Мобильный номер: </label>
@@ -40,7 +39,7 @@
 			  <button type="submit" class="btn btn-default">Регистрация</button>
 			</form>
 		</div>
-		?php var_dump($_POST); ?>
+		<?php var_dump($_POST); ?>
 	</div>
-	<div class="col-md-2"></div>
-
+	<div class="col-md-2">3</div>
+</div>
