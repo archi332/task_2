@@ -4,7 +4,7 @@ include 'header.php';
 	
 <div class="container-fluid">
 	<div class="row">
-	<div class="col-md-2"><!-- --Валидация_1<br>--Валидация_2<br>--Запись в БД<br>--Авторизация<br>--Кнопки для авторизированых --></div>
+	<div class="col-md-2">--Валидация_1<br>--Валидация_2<br>--Запись в БД<br>--Авторизация<br>--Кнопки для авторизированых</div>
 	<div class="col-md-8">
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid text-center">
@@ -24,13 +24,13 @@ include 'header.php';
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li><a href="<?php echo site_url().'/Welcome/contacts'?>">
+		        <li><a href="<?php echo site_url().'/main/contacts'?>">
 		        	<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;Контакты <span class="sr-only">(current)</span></a>
 		        </li>
-		        <li><a href="<?php echo site_url().'/Welcome/service'?>">
+		        <li><a href="<?php echo site_url().'/main/service'?>">
 		        	<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Личный кабинет <span class="sr-only">(current)</span></a>
 		        </li>
-		        <li><a href="<?php echo site_url().'/Welcome/entry'?>">
+		        <li><a href="<?php echo site_url().'/main/entry'?>">
 		        	<span class="glyphicon glyphicon-random" aria-hidden="true"></span>&nbsp;Вход/выход <span class="sr-only">(current)</span></a>
 		        </li>
 		      </ul>

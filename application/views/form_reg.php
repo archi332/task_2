@@ -1,11 +1,14 @@
 <div class="row">
-	<div class="col-md-2">1</div>
+	<div class="col-md-2"></div>
 	<div class="col-md-8">
 		<div>
-			<form action="" method="post">
+
+			<?php echo form_open('main/reg_new'); ?>
+        	  <div class="text-center"><H3>Форма регистрации</H3></div>
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Имя:</label>
 			    <input type="text" class="form-control" name="firstname" placeholder="First Name">
+			    <?php echo form_error('firstname');  ?>
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Фамилия:</label>
@@ -39,7 +42,6 @@
 			  <button type="submit" class="btn btn-default">Регистрация</button>
 			</form>
 		</div>
-		<?php var_dump($_POST); ?>
 	</div>
-	<div class="col-md-2">3</div>
+	<div class="col-md-2"></div>
 </div>
