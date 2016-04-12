@@ -11,7 +11,7 @@
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" name="password" value="<?php echo set_value('password'); ?>" placeholder="Password">  
+          <input type="password" class="form-control" name="password" placeholder="Password">  
           <?php echo form_error('password'); ?>
         </div>
         <button type="submit" class="btn btn-default">Войти</button>

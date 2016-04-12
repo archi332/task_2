@@ -4,7 +4,7 @@ include 'header.php';
 	
 <div class="container-fluid">
 	<div class="row">
-	<div class="col-md-2">--Валидация_1<br>--Валидация_2<br>--Запись в БД<br>--Авторизация<br>--Кнопки для авторизированых</div>
+	<div class="col-md-2">--Валидация_1 +-<br>--Валидация_2+-<br>--Запись в БД<br>--Авторизация<br>--Кнопки для авторизированых</div>
 	<div class="col-md-8">
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid text-center">

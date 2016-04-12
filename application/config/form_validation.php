@@ -11,7 +11,7 @@ $config = array(
 					array(
 				  		'field' => 'password',
 				  		'label' => 'Пароль',
-				  		'rules' => 'required|trim|min_length[6]|max_length[16]|md5'
+				  		'rules' => 'required|trim|min_length[6]|max_length[16]'
 				  		)
 				),
 	'main/reg_new' => array(
@@ -22,38 +22,34 @@ $config = array(
 						),
 					array(
 				  		'field' => 'surname',
-				  		'label' => 'Имя пользователя',
+				  		'label' => 'Фамилия пользователя',
 				  		'rules' => 'required|trim'
 						),
 					array(
 				  		'field' => 'login',
-				  		'label' => 'Имя пользователя',
+				  		'label' => 'Логин',
 				  		'rules' => 'required|trim|min_length[3]|max_length[25]'
 						),
 					array(
 				  		'field' => 'password',
 				  		'label' => 'Пароль',
-				  		'rules' => 'required|trim|min_length[6]max_length[16]|md5'
+				  		'rules' => 'required|trim|min_length[6]|max_length[16]'
 				  		),
 					array(
 				  		'field' => 'email',
-				  		'label' => 'Имя пользователя',
+				  		'label' => 'Почта',
 				  		'rules' => 'required|trim'
 						),
 					array(
 				  		'field' => 'date_b',
-				  		'label' => 'Имя пользователя',
+				  		'label' => 'День рождения',
 				  		'rules' => 'required|trim'
 						),
 					array(
 				  		'field' => 'mobile',
-				  		'label' => 'Имя пользователя',
+				  		'label' => 'Мобильный',
 				  		'rules' => 'required|trim'
 						),
 					)
 );
-
-
-
-
 

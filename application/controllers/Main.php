@@ -35,25 +35,50 @@ class Main extends CI_Controller {
 		// $this->load->helper('form');
  		$this->load->library('form_validation');
 		if ($this->form_validation->run() === FALSE) {
-			$this->load->view('formfailed');
+			$_POST['page']="signup failed";				// 1 авторизация трабл
+			$this->load->view('form_status');
 		}
 		else {
 		     //	-- Манипуляции с данными.
 		     // $this->load->view('entry');
-			$this->load->view('formsuccess');
+			$_POST['page']="signup success";				// 2 авторизация все гуд
+			$this->load->view('form_status');
 		}
 	}
 	public function reg_new()
 	{
 		$this->load->library('form_validation');
 		if ($this->form_validation->run() === FALSE) {	//	Проверка содержания полей
-			$this->load->view('formfailed');    //	Не верно введены данные -> вызываем страницу с ошибками
-
+			$_POST['page']="registration failed";			// 3 регистрация трабл
+			$this->load->view('form_status');    //	Не верно введены данные -> вызываем страницу с ошибками
 		} else {
-			echo '<H1 align="center">All right!<H1>';
+			if ($query = $this->db->get_where('users', array('firstname' => $_POST['firstname']))->result_array())	//	Проверка на наличие дублей
+			{
+				echo "Такой логин уже используется!";
+			} else {
+				$data = array(
+					'firstname' => $_POST['firstname'],
+					'surname' => $_POST['surname'],
+					'login' => $_POST['login'],
+					'password' => $_POST['password'],
+					'email' => $_POST['email'],
+					'date_b' => $_POST['date_b'],
+					'mobile' => $_POST['mobile']
+					);			
+					$_POST['page']="registration success";		// 4 регистрация гуд
+					$this->load->view('form_status');	
+				// echo '<H1 align="center">All right!</H1>'. "<pre>". "<br> POST:";
+				// var_dump($_POST);
+				// echo "<br>";
+				// echo "DATA:<pre>";
+				// var_dump($data);
+				// echo "</pre>";
+				// echo 'Вернитесь '. "<a href='./signup'>". 'jsdkjdsvn'. '</a>';
+				// $this->db->insert('users', $data);  //	Добавляем пользователя в базу
+				// redirect(site_url().'/main/entry');
+			}
 		}
-
-
-
 	}
 }
+
+
