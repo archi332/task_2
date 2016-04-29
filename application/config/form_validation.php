@@ -18,7 +18,7 @@ $config = array(
 					array(
 				  		'field' => 'firstname',
 				  		'label' => 'Имя пользователя',
-				  		'rules' => 'required|trim'
+				  		'rules' => 'required|trim|min_length[3]'
 						),
 					array(
 				  		'field' => 'surname',

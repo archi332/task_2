@@ -1,0 +1,102 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Main extends CI_Controller {
+	
+	public function index()
+	{
+		$this->load->view('top');
+		$this->load->view('content');
+		$this->load->view('bottom');
+	}
+	public function entry()
+	{
+		$this->load->helper('form');
+		$this->load->view('top');
+		$this->load->view('form');
+		$this->load->view('bottom');
+	}
+	public function contacts()
+	{
+		$this->load->view('top');
+		$this->load->view('contacts');
+		$this->load->view('bottom');
+	}
+	public function form_reg()
+	{
+
+		$this->load->helper('form');
+		$this->load->view('top');
+		$this->load->view('form_reg');
+		$this->load->view('bottom');
+	}
+	public function signup() 
+	{
+		// $this->load->helper('form');
+ 		$this->load->library('form_validation');	// Подключаем библиотеку валидации
+		if ($this->form_validation->run() === FALSE) {	//	Проверка на корректность введенных данных
+			$_POST['page']="signup failed";
+			$this->load->view('form_status');
+		}
+		else {
+		     //	-- Манипуляции с данными.
+		     // $this->load->view('entry');
+			$_POST['page']="signup success";
+			$this->load->view('form_status');
+		}
+	}
+	public function reg_new()
+	{
+		$this->load->library('form_validation');
+		$dublic = $query = $this->db->get_where('users', array('login' => $_POST['login']))->result_array();
+		if ($this->form_validation->run() === FALSE || $dublic) {	//	Проверка содержания полей || дубликатов
+			if ($dublic)	//	Проверка на наличие дублей по логину
+			{
+				$_POST ['dublicate'] = '';	//	Сообщаем о дубле логина
+			}
+			$_POST['page'] = "registration failed";	// Сообщаем об ошиках заполнения форм
+			$this->load->view('form_status');    //	Не верно введены данные -> вызываем страницу с ошибками
+		} else {
+			$data = array(
+				'firstname' => $_POST['firstname'],
+				'surname' => $_POST['surname'],
+				'login' => $_POST['login'],
+				'password' => $_POST['password'],
+				'email' => $_POST['email'],
+				'date_b' => $_POST['date_b'],
+				'mobile' => $_POST['mobile']
+				);					//	Обьявляем значения полей для добавления в БД
+			// $this->db->insert('users', $data);  //	Добавляем пользователя в базу
+			$_POST['page']="registration success";
+			$this->load->view('form_status');			//	Выводим страницу об успешной рекистации
+		}
+	}
+	
+	public function try_upld()
+	{
+		$this->load->helper(array('form', 'url'));
+		$this->load->view('try_form_upload', array('error' => '' ));
+	}
+	public function do_upload()
+	{
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('upload');
+		if ( ! $this->upload->do_upload())
+		{
+			$error = array('error' => $this->upload->display_errors());
+			$this->load->view('try_form_upload', $error);
+		}	
+		else
+		{
+			$data = array('upload_data' => $this->upload->data());
+			$this->load->view('upload_success', $data);
+		}
+	}	
+
+
+
+
+
+}
+
+

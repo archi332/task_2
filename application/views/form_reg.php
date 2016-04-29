@@ -3,7 +3,7 @@
 	<div class="col-md-8">
 		<div>
 
-			<?php echo form_open('main/reg_new'); ?>
+			<?php echo form_open_multipart('main/reg_new'); ?>
         	  <div class="text-center"><H3>Форма регистрации</H3></div>
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Имя:</label>
@@ -18,7 +18,11 @@
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Логин: </label>
 			    <input type="text" class="form-control" value="<?php echo set_value('login'); ?>" name="login" placeholder="Login">
-			    	<?php echo form_error('login');  ?>
+			    	<?php if (isset($_POST['dublicate'])) {
+			    			echo "Такой логин уже используется!";
+			    		} else{
+							echo form_error('login');  
+			    		} ?>
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleInputPassword1">Пароль: </label>
@@ -37,15 +41,17 @@
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Мобильный номер: </label>
-			    <input type="tel" value="<?php echo set_value('mobile'); ?>" class="form-control" name="mobile" placeholder="***-*******" pattern="\(\d\d\d\) ?\d\d\d-\d\d-\d\d" alert="Введите номер в формате (***) ***-**-**">
+			    <input type="tel" value="<?php echo set_value('mobile'); ?>" class="form-control" name="mobile" placeholder="(***) ***-**-**" pattern="\(\d\d\d\)?\d\d\d-\d\d-\d\d" alert="Введите номер в формате (***) ***-**-**">
 			    	<?php echo form_error('mobile');  ?>
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleInputFile">Загрузите аватар: </label>
 			    <input type="file" id="exampleInputFile" name="logo">
 			    <p class="help-block">Файл в формате JPG, GIF.</p>
+			    <?php if (isset($error)) { 
+			    	echo $error; } ?>
 			  </div>
-			  <button type="submit" class="btn btn-default">Регистрация</button>
+			  <button type="submit" value="upload" class="btn btn-default">Регистрация</button>
 			</form>
 		</div>
 	</div>

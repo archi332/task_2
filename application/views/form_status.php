@@ -3,14 +3,24 @@ include 'header.php';
 include 'top.php';
 if ($_POST['page'] == "signup success"){
 	echo '<h3 class="text-center">Все заполнено верно!!!</h3>';
+	var_dump($_POST);
 	echo "Продолжение будет позже...";
 	echo anchor('main/entry', 'Вернутся');
 } elseif ($_POST['page'] == "signup failed") {
-	include 'form.php';
+	include 'form.php';	
 } elseif ($_POST['page'] == "registration success") {
 	echo '<h3 class="text-center">Все поля заполнены верно.</h3>';
 	echo "Авторизируйтесь, используя форму:  ";
 	echo anchor('main/entry', 'Форма');
+	echo "<details><summary>переменная upload_data</summary>";
+
+	if (isset($upload_data)) {
+		echo "<pre>";
+		var_dump($upload_data);
+		echo "</pre>";
+	}
+	echo "</details>";
+
 } elseif ($_POST['page'] == "registration failed") {
 	include 'form_reg.php';
 }

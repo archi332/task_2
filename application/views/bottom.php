@@ -10,8 +10,7 @@
 				echo "<b>POST:</b><br>";
 				var_dump($_POST);
 				echo "</pre>"; 
-				echo site_url();
-			?>
+				echo site_url(); ?>
 		</div>
 
 
