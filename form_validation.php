@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config = array(
-	'main/signup' => array(
+	'main/log_in' => array(
 					array(
 				  		'field' => 'name',
 				  		'label' => 'Имя пользователя',

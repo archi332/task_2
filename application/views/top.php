@@ -4,7 +4,7 @@ include 'header.php';
 	
 <div class="container-fluid">
 	<div class="row">
-	<div class="col-md-2">--Валидация_1 +-<br>--Валидация_2+-<br>--Запись в БД +<br>--Авторизация-<br>--Кнопки для авторизированых-</div>
+	<div class="col-md-2"></div>
 	<div class="col-md-8">
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid text-center">
@@ -27,17 +27,35 @@ include 'header.php';
 		        <li><a href="<?php echo site_url().'/main/contacts'?>">
 		        	<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;Контакты <span class="sr-only">(current)</span></a>
 		        </li>
+
+		        <?php 
+		        $f = $this->db->get_where('users', 'logged=1')->row_array();
+		         if (isset($f)): ?>
 		        <li><a href="<?php echo site_url().'/main/service'?>">
 		        	<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Личный кабинет <span class="sr-only">(current)</span></a>
 		        </li>
+		        <li><a href="<?php echo site_url().'/main/log_out'?>">
+		        	<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>&nbsp;Выйти <span class="sr-only">(current)</span></a>
+		        </li>
+		        <?php endif; ?>
+ 				<?php if (!isset($f)): ?>
 		        <li><a href="<?php echo site_url().'/main/entry'?>">
-		        	<span class="glyphicon glyphicon-random" aria-hidden="true"></span>&nbsp;Вход/выход <span class="sr-only">(current)</span></a>
+		        	<span class="glyphicon glyphicon-random" aria-hidden="true"></span>&nbsp;Вход/Регистрация<span class="sr-only">(current)</span></a>
 		        </li>
-				<?php if (isset($_SESSION['username'])): ?>
-		        <li><a href="<?php echo site_url().'/main/exite'?>">
-		        	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Выйти <span class="sr-only">(current)</span></a>
+		         <?php endif; ?>
+		        <li>
+		        	<?php 
+		         if (isset($f)):?>
+		         <img src="/uploads/<?php echo $f['logo']; ?>" height="50">
+				<?php endif;  ?>
 		        </li>
-				<?php endif; ?>
+
+
+
+		        <li><a href="<?php echo site_url().'/main/cap'?>">
+		        	<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>&nbsp;Капча <span class="sr-only">(current)</span></a>
+		        </li>
+
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->

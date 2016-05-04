@@ -4,13 +4,12 @@
 			</div>
 		</div>
 		<div class="col-md-2">
-			<?php 
+			<!-- <?php 
 				echo "<pre><b>GET:</b><br>";
 				var_dump($_GET);
 				echo "<b>POST:</b><br>";
 				var_dump($_POST);
-				echo "</pre>"; 
-				echo site_url(); ?>
+				echo "</pre>"; ?> -->
 		</div>
 
 
